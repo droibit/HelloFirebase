@@ -1,0 +1,83 @@
+// a list of User objects.
+path /users/{uid} is User {
+  read() { isUser(key()) }
+  write() { isUser(key()) }
+}
+
+type UserNameString extends String {
+  validate() { 1 <= this.length && this.length <= 100 }
+}
+
+type User {
+  userName: UserNameString,
+  email: String,
+}
+
+// a list of Post objects
+path /posts {
+  read() { true }
+  write() { currentUser() != null }
+
+  /{postid} is Post {
+    /stars/{uid} {
+      validate() { isUser(key()) }
+    }
+  }
+}
+
+type Post {
+  uid: PostedUserId,
+  author: String,
+  title: String,
+  body: String,
+  starCount: Number,
+}
+
+type PostedUserId extends String {
+  validate() { prior(this) != null && prior(this) == this || this == currentUser() }
+}
+
+// a list of posts by the user
+path /user-posts {
+  read() { true }
+
+  /{uid} {
+    /{postid} is ListedPostId {
+    }
+  }
+}
+
+type ListedPostId {
+  write() { isUser(uid) }
+  validate() { prior(this) != null || this.uid == currentUser() }
+}
+
+// comments on a particular posts
+path /post-comments {
+  read() { true }
+  write() { currentUser() != null }
+
+  /{postid} {
+    /{commentid} is Comment {
+    }
+  }
+}
+
+type Comment {
+  uid: CommentedUserId,
+  author: String,
+  text: TextString,
+}
+
+type TextString extends String {
+  validate() { 1 <= this.length && this.length <= 500 }
+}
+
+type CommentedUserId extends String {
+  validate() { prior(this) != null && prior(this) == this || this == currentUser() }
+}
+
+// functions
+
+isUser(uid) { auth != null && uid == currentUser() }
+currentUser() { auth.uid }

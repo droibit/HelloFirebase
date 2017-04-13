@@ -1,0 +1,80 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".validate": "newData.hasChildren(['userName', 'email'])",
+        "userName": {
+          ".validate": "newData.isString() && 1 <= newData.val().length && newData.val().length <= 100"
+        },
+        "email": {
+          ".validate": "newData.isString()"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "auth != null && $uid == auth.uid",
+        ".write": "auth != null && $uid == auth.uid"
+      }
+    },
+    "posts": {
+      "$postid": {
+        "stars": {
+          "$uid": {
+            ".validate": "auth != null && $uid == auth.uid"
+          }
+        },
+        ".validate": "newData.hasChildren(['uid', 'author', 'title', 'body', 'starCount'])",
+        "uid": {
+          ".validate": "newData.isString() && (data.val() != null && data.val() == newData.val() || newData.val() == auth.uid)"
+        },
+        "author": {
+          ".validate": "newData.isString()"
+        },
+        "title": {
+          ".validate": "newData.isString()"
+        },
+        "body": {
+          ".validate": "newData.isString()"
+        },
+        "starCount": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": "false"
+        }
+      },
+      ".read": "true",
+      ".write": "auth.uid != null"
+    },
+    "user-posts": {
+      "$uid": {
+        "$postid": {
+          ".validate": "data.val() != null || newData.child('uid').val() == auth.uid",
+          ".write": "auth != null && $uid == auth.uid"
+        }
+      },
+      ".read": "true"
+    },
+    "post-comments": {
+      "$postid": {
+        "$commentid": {
+          ".validate": "newData.hasChildren(['uid', 'author', 'text'])",
+          "uid": {
+            ".validate": "newData.isString() && (data.val() != null && data.val() == newData.val() || newData.val() == auth.uid)"
+          },
+          "author": {
+            ".validate": "newData.isString()"
+          },
+          "text": {
+            ".validate": "newData.isString() && 1 <= newData.val().length && newData.val().length <= 500"
+          },
+          "$other": {
+            ".validate": "false"
+          }
+        }
+      },
+      ".read": "true",
+      ".write": "auth.uid != null"
+    }
+  }
+}
