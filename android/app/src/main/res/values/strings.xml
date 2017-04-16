@@ -11,6 +11,7 @@
     <string name="sign_in_sign_up_with_google">Sign up with Google</string>
     <string name="sign_in_sign_up_email">Sign up with email</string>
     <string name="sign_in_sign_in_email">or Sign in with email.</string>
-
+    <string name="sign_in_email_sign_up">Sign Up</string>
+    <string name="sign_in_email_sign_in">Sign In</string>
 
 </resources>

@@ -19,8 +19,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignInActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".signin.SignInActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false" />
+        <activity
+            android:name=".signin.EmailSignInActivity"
+            android:parentActivityName=".signin.SignInActivity"
+            android:exported="false">
+
+        </activity>
     </application>
 
 </manifest>

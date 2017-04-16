@@ -33,7 +33,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    kapt 'com.android.databinding:compiler:2.3.1'
 
     compile "com.android.support:appcompat-v7:$supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
@@ -42,7 +41,6 @@ dependencies {
     compile "com.google.firebase:firebase-auth:$firebaseVersion"
     compile "com.google.firebase:firebase-database:$firebaseVersion"
     compile "com.google.android.gms:play-services-auth:$playServicesVrsion"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
 
@@ -50,6 +48,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    kapt 'com.android.databinding:compiler:2.3.1'
 }
 apply plugin: 'com.google.gms.google-services'

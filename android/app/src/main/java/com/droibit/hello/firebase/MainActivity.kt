@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import com.droibit.hello.firebase.databinding.ActivityMainBinding
+import com.droibit.hello.firebase.signin.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
