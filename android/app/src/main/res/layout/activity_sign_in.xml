@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.droibit.hello.firebase.SignInActivity">
+
+        <TextView
+            android:id="@+id/firebase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in_label_firebase"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="128dp"
+            app:layout_constraintHorizontal_bias="0.506" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_up_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="96dp"
+            app:buttonSize="wide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firebase" />
+
+        <TextView
+            android:id="@+id/label_sign_up_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="4dp"
+            android:text="@string/sign_in_sign_up_email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@+id/sign_up_google"
+            app:layout_constraintRight_toRightOf="@+id/sign_up_google"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_google"
+            tools:text="@string/sign_in_sign_up_email" />
+
+        <TextView
+            android:id="@+id/sign_in_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:padding="4dp"
+            android:text="@string/sign_in_sign_in_email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintLeft_toLeftOf="@+id/label_sign_up_email"
+            app:layout_constraintRight_toRightOf="@+id/label_sign_up_email"
+            app:layout_constraintTop_toBottomOf="@+id/label_sign_up_email"
+            tools:text="@string/sign_in_sign_in_email"
+            android:foreground="?attr/selectableItemBackground" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

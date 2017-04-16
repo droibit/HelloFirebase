@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import com.droibit.hello.firebase.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,8 +14,17 @@ class MainActivity : AppCompatActivity() {
         DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
     }
 
+    private val auth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (auth.currentUser == null) {
+            startActivity(SignInActivity.createIntent(this))
+            finish()
+            return
+        }
+
         setContentView(R.layout.activity_main)
 
         val pagerAdapter = object : FragmentPagerAdapter(supportFragmentManager) {
