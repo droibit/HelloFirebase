@@ -35,13 +35,11 @@ class EmailSignInActivity : AppCompatActivity() {
         }
     }
 
-    val binding: ActivityEmailSignInBinding by lazy {
-        DataBindingUtil.setContentView<ActivityEmailSignInBinding>(this, R.layout.activity_email_sign_in)
-    }
+    private lateinit var binding: ActivityEmailSignInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_email_sign_in)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_email_sign_in)
 
         supportActionBar?.let {
             it.title = when (intent.extras[KEY_REQUEST]) {

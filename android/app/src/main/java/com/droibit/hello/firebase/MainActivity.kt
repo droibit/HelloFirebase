@@ -11,10 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
-    // FIXME:
-    private val binding: ActivityMainBinding by lazy {
-        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-    }
+    private lateinit var binding: ActivityMainBinding
 
     private val auth = FirebaseAuth.getInstance()
 
@@ -27,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val pagerAdapter = object : FragmentPagerAdapter(supportFragmentManager) {
 
