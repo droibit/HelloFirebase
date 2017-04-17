@@ -1,13 +1,24 @@
 package com.droibit.hello.firebase.signin
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.droibit.hello.firebase.R
+import com.droibit.hello.firebase.databinding.ActivitySignInBinding
+import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.firebase.auth.FirebaseAuth
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
 
     companion object {
 
@@ -15,19 +26,54 @@ class SignInActivity : AppCompatActivity() {
         private val REQUEST_EMAIL_SIGN_UP = 1
         private val REQUEST_EMAIL_SIGN_IN = 2
 
+        private val TAG = SignInActivity::class.java.simpleName
+
         @JvmStatic
         fun createIntent(context: Context) = Intent(context, SignInActivity::class.java)
     }
 
+    private val googleApiClient: GoogleApiClient by lazy {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+        GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build()
+    }
+
+    private val auth = FirebaseAuth.getInstance()
+
+    private lateinit var binding: ActivitySignInBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+
+        binding = DataBindingUtil.setContentView<ActivitySignInBinding>(this, R.layout.activity_sign_in).apply {
+            signUpGoogle.setOnClickListener { onClickGoogleSignUp(it) }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            REQUEST_GOOGLE_SIGN_UP -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+                    doFirebaseAuthWithGoogle(result.signInAccount!!)
+                } else {
+                    Toast.makeText(this, "Failed sign in with Google.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            else -> super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     // SignInHandler
 
     fun onClickGoogleSignUp(v: View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient)
+        startActivityForResult(signInIntent, REQUEST_GOOGLE_SIGN_UP)
     }
 
     fun onClickEmailSignUp(v: View) {
@@ -38,6 +84,21 @@ class SignInActivity : AppCompatActivity() {
     fun onClickEmailSignIn(v: View) {
         val intent = EmailSignInActivity.createSignInIntent(this)
         startActivityForResult(intent, REQUEST_EMAIL_SIGN_UP)
+    }
 
+    // OnConnectionFailedListener
+
+    override fun onConnectionFailed(connectionResult: ConnectionResult) {
+        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
+        // be available.
+        Log.d(TAG, "onConnectionFailed:" + connectionResult);
+        Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
+    }
+
+    // Private
+
+    private fun doFirebaseAuthWithGoogle(account: GoogleSignInAccount) {
+        Log.d(TAG, "gmail: ${account.email}")
+        // TODO: showProgress
     }
 }
