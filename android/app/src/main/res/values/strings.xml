@@ -5,7 +5,7 @@
     <string name="main_tabs_my_posts">My Posts</string>
     <string name="main_tabs_my_top_posts">My Top Posts</string>
 
-    <string name="main_menu_logout">Log Out</string>
+    <string name="main_menu_sign_out">Sign Out</string>
 
     <string name="sign_in_label_firebase">Hello, Firebase</string>
     <string name="sign_in_sign_up_with_google">Sign up with Google</string>

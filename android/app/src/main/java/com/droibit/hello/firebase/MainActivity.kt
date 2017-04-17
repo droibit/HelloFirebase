@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import com.droibit.hello.firebase.databinding.ActivityMainBinding
 import com.droibit.hello.firebase.signin.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -31,8 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         val currentUser = auth.currentUser
         if (currentUser == null) {
-            startActivity(SignInActivity.createIntent(this))
-            finish()
+            startSignInActivity()
             return
         }
         Log.d(TAG, "currentUser: ${currentUser.email}")
@@ -68,5 +68,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_sign_out -> { doFirebaseSignout(); true }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    // private
+
+    private fun doFirebaseSignout() {
+        auth.signOut()
+        // TODO: sign out with google account
+
+        startSignInActivity()
+    }
+
+    private fun startSignInActivity() {
+        startActivity(SignInActivity.createIntent(this))
+        finish()
     }
 }
