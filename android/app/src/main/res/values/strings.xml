@@ -14,4 +14,7 @@
     <string name="sign_in_email_sign_up">Sign Up</string>
     <string name="sign_in_email_sign_in">Sign In</string>
 
+    <string name="sign_in_progress_sign_up">Sign Up…</string>
+    <string name="sign_in_progress_sign_in">Sign In…</string>
+
 </resources>

@@ -1,15 +1,26 @@
 package com.droibit.hello.firebase
 
+import android.content.Context
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import com.droibit.hello.firebase.databinding.ActivityMainBinding
 import com.droibit.hello.firebase.signin.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+
+        private val TAG = MainActivity::class.java.simpleName
+
+        @JvmStatic
+        fun createIntent(context: Context) = Intent(context, MainActivity::class.java)
+    }
 
     private lateinit var binding: ActivityMainBinding
 
@@ -18,11 +29,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (auth.currentUser == null) {
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
             startActivity(SignInActivity.createIntent(this))
             finish()
             return
         }
+        Log.d(TAG, "currentUser: ${currentUser.email}")
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
