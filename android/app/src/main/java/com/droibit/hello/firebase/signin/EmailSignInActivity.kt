@@ -41,12 +41,16 @@ class EmailSignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_email_sign_in)
 
+
         supportActionBar?.let {
             it.title = when (intent.extras[KEY_REQUEST]) {
-                EXTRA_REQUEST_SIGN_UP -> getString(R.string.sign_in_email_sign_up)
+                EXTRA_REQUEST_SIGN_UP -> {
+                    getString(R.string.sign_in_email_sign_up)
+                }
                 EXTRA_REQUEST_SIGN_IN -> getString(R.string.sign_in_email_sign_in)
                 else -> error("unknown request")
             }
+            binding.signInOrUp.text = it.title
         }
     }
 

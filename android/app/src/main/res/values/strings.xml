@@ -17,4 +17,7 @@
     <string name="sign_in_progress_sign_up">Sign Up…</string>
     <string name="sign_in_progress_sign_in">Sign In…</string>
 
+    <string name="email_sign_in_hint_email">Email</string>
+    <string name="email_sign_in_hint_password">Password</string>
+
 </resources>

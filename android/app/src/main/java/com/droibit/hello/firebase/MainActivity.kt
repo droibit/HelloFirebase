@@ -72,14 +72,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_sign_out -> { doFirebaseSignout(); true }
+            R.id.action_sign_out -> { doFirebaseSignOut(); true }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
     // private
 
-    private fun doFirebaseSignout() {
+    private fun doFirebaseSignOut() {
         auth.signOut()
         // TODO: sign out with google account
 
