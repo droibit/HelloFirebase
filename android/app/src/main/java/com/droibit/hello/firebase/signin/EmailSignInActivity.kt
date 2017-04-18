@@ -6,9 +6,11 @@ import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 
 import com.droibit.hello.firebase.R
 import com.droibit.hello.firebase.databinding.ActivityEmailSignInBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class EmailSignInActivity : AppCompatActivity() {
 
@@ -37,13 +39,17 @@ class EmailSignInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEmailSignInBinding
 
+    private val requestType: String by lazy { intent.getStringExtra(KEY_REQUEST) }
+
+    private val auth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_email_sign_in)
 
 
         supportActionBar?.let {
-            it.title = when (intent.extras[KEY_REQUEST]) {
+            it.title = when (requestType) {
                 EXTRA_REQUEST_SIGN_UP -> {
                     getString(R.string.sign_in_email_sign_up)
                 }
@@ -59,5 +65,23 @@ class EmailSignInActivity : AppCompatActivity() {
             android.R.id.home -> { finish(); true }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun onSignInOrSignUpClick(v: View) {
+        if (!validForm()) {
+            return
+        }
+
+
+    }
+
+    private fun validForm(): Boolean {
+        val email = "${binding.email.text}"
+        val password = "${binding.password.text}"
+
+        binding.inputEmail.error = if (email.isNotEmpty()) null else "Required."
+        binding.inputPassword.error = if (password.isNotEmpty()) null else "Required."
+
+        return binding.inputEmail != null && binding.password != null
     }
 }
