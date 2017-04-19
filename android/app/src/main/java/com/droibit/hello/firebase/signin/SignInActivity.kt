@@ -24,7 +24,8 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 class SignInActivity : AppCompatActivity(),
         GoogleApiClient.OnConnectionFailedListener,
-        HasProgressDialog by HasProgressDialogImpl() {
+        HasProgressDialog by HasProgressDialogImpl(),
+        UserStorable by FirebaseUserStorableImpl() {
 
     companion object {
 
@@ -134,7 +135,9 @@ class SignInActivity : AppCompatActivity(),
                         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         return@addOnCompleteListener
                     }
-                    Log.d(TAG, "Sign up(Firebase) with ${task.result.user.email}")
+                    val user = task.result.user
+                    storeUser(user.uid, user.email!!)
+                    Log.d(TAG, "Sign up(Firebase) with ${user.email}")
 
                     hideProgress()
                     Toast.makeText(this, "Authentication successful.", Toast.LENGTH_SHORT).show()

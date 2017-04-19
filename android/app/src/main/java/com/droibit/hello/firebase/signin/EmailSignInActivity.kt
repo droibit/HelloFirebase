@@ -15,7 +15,8 @@ import com.droibit.hello.firebase.databinding.ActivityEmailSignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class EmailSignInActivity : AppCompatActivity(),
-        HasProgressDialog by HasProgressDialogImpl() {
+        HasProgressDialog by HasProgressDialogImpl(),
+        UserStorable by FirebaseUserStorableImpl() {
 
     enum class Request {
         SIGN_UP, SIGN_IN
@@ -99,7 +100,10 @@ class EmailSignInActivity : AppCompatActivity(),
                         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         return@addOnCompleteListener
                     }
-                    Log.d(TAG, "Sign up(Email&Password) with ${task.result.user.email}")
+
+                    val user = task.result.user
+                    storeUser(user.uid, user.email!!)
+                    Log.d(TAG, "Sign up(Email&Password) with ${user.email}")
 
                     hideProgress()
                     Toast.makeText(this, "Authentication successful.", Toast.LENGTH_SHORT).show()
@@ -117,7 +121,10 @@ class EmailSignInActivity : AppCompatActivity(),
                         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         return@addOnCompleteListener
                     }
-                    Log.d(TAG, "Sign in(Email&Password) with ${task.result.user.email}")
+
+                    val user = task.result.user
+                    storeUser(user.uid, user.email!!)
+                    Log.d(TAG, "Sign in(Email&Password) with ${user.email}")
 
                     hideProgress()
                     Toast.makeText(this, "Authentication successful.", Toast.LENGTH_SHORT).show()
