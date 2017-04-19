@@ -8,7 +8,6 @@
         android:layout_height="match_parent"
         tools:context="com.droibit.hello.firebase.signin.EmailSignInActivity">
 
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_email"
             android:layout_width="0dp"

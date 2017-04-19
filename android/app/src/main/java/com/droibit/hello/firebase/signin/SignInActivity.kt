@@ -93,7 +93,7 @@ class SignInActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
 
     fun onClickEmailSignIn(v: View) {
         val intent = EmailSignInActivity.createSignInIntent(this)
-        startActivityForResult(intent, REQUEST_EMAIL_SIGN_UP)
+        startActivityForResult(intent, REQUEST_EMAIL_SIGN_IN)
     }
 
     // OnConnectionFailedListener

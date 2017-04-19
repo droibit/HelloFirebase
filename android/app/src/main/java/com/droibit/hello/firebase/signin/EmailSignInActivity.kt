@@ -14,32 +14,30 @@ import com.google.firebase.auth.FirebaseAuth
 
 class EmailSignInActivity : AppCompatActivity() {
 
+    enum class Request {
+        SIGN_UP, SIGN_IN
+    }
+
     companion object {
 
         private val KEY_REQUEST = "request"
 
         @JvmStatic
-        val EXTRA_REQUEST_SIGN_IN = "sign_in"
-
-        @JvmStatic
-        val EXTRA_REQUEST_SIGN_UP = "sign_up"
-
-        @JvmStatic
         fun createSignUpIntent(context: Context): Intent {
             return Intent(context, EmailSignInActivity::class.java)
-                    .putExtra(KEY_REQUEST, EXTRA_REQUEST_SIGN_UP)
+                    .putExtra(KEY_REQUEST, Request.SIGN_UP)
         }
 
         @JvmStatic
         fun createSignInIntent(context: Context): Intent {
             return Intent(context, EmailSignInActivity::class.java)
-                    .putExtra(KEY_REQUEST, EXTRA_REQUEST_SIGN_IN)
+                    .putExtra(KEY_REQUEST, Request.SIGN_IN)
         }
     }
 
     private lateinit var binding: ActivityEmailSignInBinding
 
-    private val requestType: String by lazy { intent.getStringExtra(KEY_REQUEST) }
+    private val requestType: Request by lazy { intent.getSerializableExtra(KEY_REQUEST) as Request }
 
     private val auth = FirebaseAuth.getInstance()
 
@@ -50,11 +48,8 @@ class EmailSignInActivity : AppCompatActivity() {
 
         supportActionBar?.let {
             it.title = when (requestType) {
-                EXTRA_REQUEST_SIGN_UP -> {
-                    getString(R.string.sign_in_email_sign_up)
-                }
-                EXTRA_REQUEST_SIGN_IN -> getString(R.string.sign_in_email_sign_in)
-                else -> error("unknown request")
+                Request.SIGN_UP -> getString(R.string.sign_in_email_sign_up)
+                Request.SIGN_IN -> getString(R.string.sign_in_email_sign_in)
             }
             binding.signInOrUp.text = it.title
         }
@@ -72,7 +67,10 @@ class EmailSignInActivity : AppCompatActivity() {
             return
         }
 
-
+        when (requestType) {
+            Request.SIGN_UP -> doFirebaseSignUp("${binding.email}", "${binding.password}")
+            Request.SIGN_IN -> doFirebaseSignIn("${binding.email}", "${binding.password}")
+        }
     }
 
     private fun validForm(): Boolean {
@@ -83,5 +81,13 @@ class EmailSignInActivity : AppCompatActivity() {
         binding.inputPassword.error = if (password.isNotEmpty()) null else "Required."
 
         return binding.inputEmail != null && binding.password != null
+    }
+
+    private fun doFirebaseSignUp(email: String, password: String) {
+
+    }
+
+    private fun doFirebaseSignIn(email: String, password: String) {
+
     }
 }
