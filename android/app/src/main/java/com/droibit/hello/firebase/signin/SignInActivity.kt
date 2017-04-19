@@ -22,15 +22,15 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
-class SignInActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
+class SignInActivity : AppCompatActivity(),
+        GoogleApiClient.OnConnectionFailedListener,
+        HasProgressDialog by HasProgressDialogImpl() {
 
     companion object {
 
         private val REQUEST_GOOGLE_SIGN_UP = 0
         private val REQUEST_EMAIL_SIGN_UP = 1
         private val REQUEST_EMAIL_SIGN_IN = 2
-
-        private val TAG_PROGRESS_DIALOG = "TAG_PROGRESS_DIALOG"
 
         private val TAG = SignInActivity::class.java.simpleName
 
@@ -53,6 +53,8 @@ class SignInActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
 
     private lateinit var binding: ActivitySignInBinding
 
+    private var requestHideProgress: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -69,12 +71,20 @@ class SignInActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
                     doFirebaseAuthWithGoogle(result.signInAccount!!)
                 } else {
                     Toast.makeText(this, "Failed sign in with Google.", Toast.LENGTH_SHORT).show()
-                    // FIXME:
-                    hideProgress()
+                    requestHideProgress = true
                 }
             }
             else -> super.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+
+        if (requestHideProgress) {
+            hideProgress()
+        }
+        requestHideProgress = false
     }
 
     // SignInHandler
@@ -125,19 +135,6 @@ class SignInActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
 
                     startMainActivity()
                 }
-    }
-
-    private fun showProgress() {
-        if (supportFragmentManager.findFragmentByTag(TAG_PROGRESS_DIALOG) == null) {
-            val f = ProgressDialogFragment.newInstance(getString(R.string.sign_in_progress_sign_up))
-            f.isCancelable = false
-            f.show(supportFragmentManager, TAG_PROGRESS_DIALOG)
-        }
-    }
-
-    private fun hideProgress() {
-        val f = supportFragmentManager.findFragmentByTag(TAG_PROGRESS_DIALOG) as? DialogFragment
-        f?.dismiss()
     }
 
     private fun startMainActivity() {

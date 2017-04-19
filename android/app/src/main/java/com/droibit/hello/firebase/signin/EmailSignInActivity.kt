@@ -3,16 +3,18 @@ package com.droibit.hello.firebase.signin
 import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
-
+import android.widget.Toast
 import com.droibit.hello.firebase.R
 import com.droibit.hello.firebase.databinding.ActivityEmailSignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class EmailSignInActivity : AppCompatActivity() {
+class EmailSignInActivity : AppCompatActivity(),
+        HasProgressDialog by HasProgressDialogImpl() {
 
     enum class Request {
         SIGN_UP, SIGN_IN
@@ -21,6 +23,8 @@ class EmailSignInActivity : AppCompatActivity() {
     companion object {
 
         private val KEY_REQUEST = "request"
+
+        private val TAG = EmailSignInActivity::class.java.simpleName
 
         @JvmStatic
         fun createSignUpIntent(context: Context): Intent {
@@ -57,7 +61,9 @@ class EmailSignInActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> { finish(); true }
+            android.R.id.home -> {
+                finish(); true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -84,7 +90,6 @@ class EmailSignInActivity : AppCompatActivity() {
     }
 
     private fun doFirebaseSignUp(email: String, password: String) {
-
     }
 
     private fun doFirebaseSignIn(email: String, password: String) {
