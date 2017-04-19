@@ -95,7 +95,8 @@ class EmailSignInActivity : AppCompatActivity(),
                 .addOnCompleteListener { task ->
                     Log.d(TAG, "createUserWithEmailAndPassword:onComplete:${task.isSuccessful}")
                     if (!task.isSuccessful) {
-                        Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        val msg = task.exception?.message ?: "Authentication failed."
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         return@addOnCompleteListener
                     }
                     Log.d(TAG, "Sign up(Email&Password) with ${task.result.user.email}")
@@ -108,7 +109,21 @@ class EmailSignInActivity : AppCompatActivity(),
     }
 
     private fun doFirebaseSignIn(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    Log.d(TAG, "createUserWithEmailAndPassword:onComplete:${task.isSuccessful}")
+                    if (!task.isSuccessful) {
+                        val msg = task.exception?.message ?: "Authentication failed."
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        return@addOnCompleteListener
+                    }
+                    Log.d(TAG, "Sign in(Email&Password) with ${task.result.user.email}")
 
+                    hideProgress()
+                    Toast.makeText(this, "Authentication successful.", Toast.LENGTH_SHORT).show()
+
+                    backSignInActivity()
+                }
     }
 
     private fun backSignInActivity() {

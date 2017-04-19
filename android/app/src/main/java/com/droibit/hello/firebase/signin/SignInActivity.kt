@@ -130,7 +130,8 @@ class SignInActivity : AppCompatActivity(),
                 .addOnCompleteListener { task ->
                     Log.d(TAG, "signInWithCredential:onComplete:${task.isSuccessful}")
                     if (!task.isSuccessful) {
-                        Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        val msg = task.exception?.message ?: "Authentication failed."
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         return@addOnCompleteListener
                     }
                     Log.d(TAG, "Sign up(Firebase) with ${task.result.user.email}")
