@@ -74,6 +74,11 @@ class SignInActivity : AppCompatActivity(),
                     requestHideProgress = true
                 }
             }
+            REQUEST_EMAIL_SIGN_UP, REQUEST_EMAIL_SIGN_IN -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    startMainActivity()
+                }
+            }
             else -> super.onActivityResult(requestCode, resultCode, data)
         }
     }
@@ -131,7 +136,7 @@ class SignInActivity : AppCompatActivity(),
                     Log.d(TAG, "Sign up(Firebase) with ${task.result.user.email}")
 
                     hideProgress()
-                    Toast.makeText(this, "Authentication successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Authentication successful.", Toast.LENGTH_SHORT).show()
 
                     startMainActivity()
                 }

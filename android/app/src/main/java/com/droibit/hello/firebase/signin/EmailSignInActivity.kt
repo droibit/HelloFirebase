@@ -1,5 +1,6 @@
 package com.droibit.hello.firebase.signin
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -74,8 +75,8 @@ class EmailSignInActivity : AppCompatActivity(),
         }
 
         when (requestType) {
-            Request.SIGN_UP -> doFirebaseSignUp("${binding.email}", "${binding.password}")
-            Request.SIGN_IN -> doFirebaseSignIn("${binding.email}", "${binding.password}")
+            Request.SIGN_UP -> doFirebaseSignUp("${binding.email.text}", "${binding.password.text}")
+            Request.SIGN_IN -> doFirebaseSignIn("${binding.email.text}", "${binding.password.text}")
         }
     }
 
@@ -90,9 +91,28 @@ class EmailSignInActivity : AppCompatActivity(),
     }
 
     private fun doFirebaseSignUp(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    Log.d(TAG, "createUserWithEmailAndPassword:onComplete:${task.isSuccessful}")
+                    if (!task.isSuccessful) {
+                        Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        return@addOnCompleteListener
+                    }
+                    Log.d(TAG, "Sign up(Email&Password) with ${task.result.user.email}")
+
+                    hideProgress()
+                    Toast.makeText(this, "Authentication successful.", Toast.LENGTH_SHORT).show()
+
+                    backSignInActivity()
+                }
     }
 
     private fun doFirebaseSignIn(email: String, password: String) {
 
+    }
+
+    private fun backSignInActivity() {
+        setResult(Activity.RESULT_OK)
+        finish()
     }
 }
