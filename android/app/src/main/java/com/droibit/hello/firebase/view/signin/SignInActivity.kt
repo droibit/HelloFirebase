@@ -1,4 +1,4 @@
-package com.droibit.hello.firebase.signin
+package com.droibit.hello.firebase.view.signin
 
 import android.app.Activity
 import android.content.Context
@@ -10,8 +10,8 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.droibit.hello.firebase.MainActivity
-import com.droibit.hello.firebase.ProgressDialogFragment
+import com.droibit.hello.firebase.view.MainActivity
+import com.droibit.hello.firebase.view.ProgressDialogFragment
 import com.droibit.hello.firebase.R
 import com.droibit.hello.firebase.databinding.ActivitySignInBinding
 import com.google.android.gms.auth.api.Auth

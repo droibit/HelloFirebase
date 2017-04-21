@@ -1,4 +1,4 @@
-package com.droibit.hello.firebase
+package com.droibit.hello.firebase.view
 
 import android.content.Context
 import android.content.Intent
@@ -9,8 +9,9 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.droibit.hello.firebase.R
 import com.droibit.hello.firebase.databinding.ActivityMainBinding
-import com.droibit.hello.firebase.signin.SignInActivity
+import com.droibit.hello.firebase.view.signin.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {

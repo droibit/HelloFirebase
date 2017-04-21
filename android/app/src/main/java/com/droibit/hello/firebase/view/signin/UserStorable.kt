@@ -1,4 +1,4 @@
-package com.droibit.hello.firebase.signin
+package com.droibit.hello.firebase.view.signin
 
 import android.util.Log
 import com.droibit.hello.firebase.model.User
