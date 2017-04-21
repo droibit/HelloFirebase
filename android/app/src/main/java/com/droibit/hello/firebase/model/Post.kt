@@ -5,11 +5,11 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class Post(
-        var uid: String,
-        var author: String,
-        var title: String,
-        var body: String,
-        var starCount: Int,
+        var uid: String = "",
+        var author: String = "",
+        var title: String = "",
+        var body: String = "",
+        var starCount: Int = 0,
         val stars: Map<String, Boolean> = hashMapOf()) {
 
     @Exclude
