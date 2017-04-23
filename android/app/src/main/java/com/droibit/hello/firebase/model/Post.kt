@@ -5,12 +5,15 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class Post(
-        var uid: String = "",
-        var author: String = "",
-        var title: String = "",
-        var body: String = "",
-        var starCount: Int = 0,
-        val stars: Map<String, Boolean> = hashMapOf()) {
+        var uid: String,
+        var author: String,
+        var title: String,
+        var body: String,
+        var starCount: Int, val stars: Map<String, Boolean>) {
+
+    constructor() : this(
+            uid = "", author = "", title = "", body = "", starCount = 0, stars = hashMapOf())
+
 
     @Exclude
     fun toMap() = hashMapOf(
