@@ -11,8 +11,12 @@ data class Post(
         var body: String,
         var starCount: Int, val stars: Map<String, Boolean>) {
 
-    constructor() : this(
-            uid = "", author = "", title = "", body = "", starCount = 0, stars = hashMapOf())
+    constructor() :
+            this(uid = "", author = "", title = "", body = "", starCount = 0, stars = hashMapOf())
+
+
+    constructor(uid: String, author: String, title: String, body: String) :
+            this(uid, author, title, body, starCount = 0, stars = hashMapOf())
 
 
     @Exclude
