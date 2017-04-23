@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="activity"
+            type="com.droibit.hello.firebase.view.MainActivity" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,7 +50,8 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="16dp"
             app:srcCompat="@drawable/ic_fab_edit"
-            app:fabSize="normal" />
+            app:fabSize="normal"
+            app:setOnClickListener="@{() -> activity.onNewPostClick()}" />
 
     </RelativeLayout>
 

@@ -19,15 +19,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".view.post.NewPostActivity"
+            android:exported="false"
+            android:parentActivityName=".view.MainActivity" />
+        <activity
             android:name=".view.signin.SignInActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.signin.EmailSignInActivity"
             android:exported="false"
-            android:parentActivityName="com.droibit.hello.firebase.view.signin.SignInActivity">
-
-        </activity>
+            android:parentActivityName=".view.signin.SignInActivity" />
     </application>
 
 </manifest>

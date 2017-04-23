@@ -1,5 +1,6 @@
 package com.droibit.hello.firebase.view
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -9,8 +10,10 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.droibit.hello.firebase.R
 import com.droibit.hello.firebase.databinding.ActivityMainBinding
+import com.droibit.hello.firebase.view.post.NewPostActivity
 import com.droibit.hello.firebase.view.signin.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -38,32 +41,34 @@ class MainActivity : AppCompatActivity() {
         }
         Log.d(TAG, "currentUser: ${currentUser.email}")
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+                .apply {
+                    activity = this@MainActivity
 
-        val pagerAdapter = object : FragmentPagerAdapter(supportFragmentManager) {
+                    container.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
 
-            private val fragments = arrayOf(
-                    RecentPostsFragment(),
-                    MyPostsFragment(),
-                    MyTopPostsFragment()
-            )
+                        private val fragments = arrayOf(
+                                RecentPostsFragment(),
+                                MyPostsFragment(),
+                                MyTopPostsFragment()
+                        )
 
-            private val titles = arrayOf(
-                    getString(R.string.main_tabs_recent),
-                    getString(R.string.main_tabs_my_posts),
-                    getString(R.string.main_tabs_my_top_posts)
-            )
+                        private val titles = arrayOf(
+                                getString(R.string.main_tabs_recent),
+                                getString(R.string.main_tabs_my_posts),
+                                getString(R.string.main_tabs_my_top_posts)
+                        )
 
-            override fun getItem(position: Int) = fragments[position]
+                        override fun getItem(position: Int) = fragments[position]
 
-            override fun getCount() = fragments.size
+                        override fun getCount() = fragments.size
 
-            override fun getPageTitle(position: Int) = titles[position]
-        }
-        binding.container.adapter = pagerAdapter
-        binding.tabs.setupWithViewPager(binding.container)
+                        override fun getPageTitle(position: Int) = titles[position]
+                    }
+                    tabs.setupWithViewPager(container)
 
-        setSupportActionBar(binding.toolbar)
+                    setSupportActionBar(toolbar)
+                }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -76,6 +81,13 @@ class MainActivity : AppCompatActivity() {
             R.id.action_sign_out -> { doFirebaseSignOut(); true }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    // public
+
+    fun onNewPostClick() {
+        val intent = NewPostActivity.createIntent(this)
+        startActivity(intent)
     }
 
     // private

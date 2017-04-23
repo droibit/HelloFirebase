@@ -20,4 +20,9 @@
     <string name="email_sign_in_hint_email">Email</string>
     <string name="email_sign_in_hint_password">Password</string>
 
+    <string name="new_post_label_title">Title</string>
+    <string name="new_post_hint_title">Write title</string>
+    <string name="new_post_label_body">Post</string>
+    <string name="new_post_hint_body">Write your post…</string>
+
 </resources>
