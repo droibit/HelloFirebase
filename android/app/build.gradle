@@ -40,6 +40,7 @@ dependencies {
     compile "com.android.support:design:$supportLibraryVersion"
     compile "com.google.firebase:firebase-auth:$firebaseVersion"
     compile "com.google.firebase:firebase-database:$firebaseVersion"
+    compile 'com.firebaseui:firebase-ui-database:1.2.0'
     compile "com.google.android.gms:play-services-auth:$playServicesVrsion"
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
