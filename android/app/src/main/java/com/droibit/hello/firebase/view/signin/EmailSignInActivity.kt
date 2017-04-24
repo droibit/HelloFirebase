@@ -51,7 +51,6 @@ class EmailSignInActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_email_sign_in)
 
-
         supportActionBar?.let {
             it.title = when (requestType) {
                 Request.SIGN_UP -> getString(R.string.sign_in_email_sign_up)

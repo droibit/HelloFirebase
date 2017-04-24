@@ -5,15 +5,13 @@ import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.droibit.hello.firebase.view.MainActivity
-import com.droibit.hello.firebase.view.ProgressDialogFragment
 import com.droibit.hello.firebase.R
 import com.droibit.hello.firebase.databinding.ActivitySignInBinding
+import com.droibit.hello.firebase.view.MainActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -59,9 +57,10 @@ class SignInActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView<ActivitySignInBinding>(this, R.layout.activity_sign_in).apply {
-            signUpGoogle.setOnClickListener { onClickGoogleSignUp(it) }
-        }
+        binding = DataBindingUtil.setContentView<ActivitySignInBinding>(this, R.layout.activity_sign_in)
+                .apply {
+                    activity = this@SignInActivity
+                }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -95,19 +94,19 @@ class SignInActivity : AppCompatActivity(),
 
     // SignInHandler
 
-    fun onClickGoogleSignUp(v: View) {
+    fun onGoogleSignUpClick() {
         showProgress()
 
         val signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient)
         startActivityForResult(signInIntent, REQUEST_GOOGLE_SIGN_UP)
     }
 
-    fun onClickEmailSignUp(v: View) {
+    fun onEmailSignUpClick() {
         val intent = EmailSignInActivity.createSignUpIntent(this)
         startActivityForResult(intent, REQUEST_EMAIL_SIGN_UP)
     }
 
-    fun onClickEmailSignIn(v: View) {
+    fun onEmailSignInClick() {
         val intent = EmailSignInActivity.createSignInIntent(this)
         startActivityForResult(intent, REQUEST_EMAIL_SIGN_IN)
     }

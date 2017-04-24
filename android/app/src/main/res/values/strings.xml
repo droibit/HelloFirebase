@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HelloFirebase</string>
+    <string name="app_name">Hello Firebase</string>
 
     <string name="main_tabs_recent">Recent</string>
     <string name="main_tabs_my_posts">My Posts</string>
