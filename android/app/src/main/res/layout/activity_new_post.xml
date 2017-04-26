@@ -12,7 +12,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.post.NewPostActivity">
+        tools:context=".view.post.NewPostActivity"
+        tools:ignore="RtlHardcoded">
 
         <TextView
             android:id="@+id/label_title"
@@ -45,7 +46,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="8dp"
-            android:ems="10"
             android:hint="@string/new_post_hint_title"
             android:inputType="text"
             android:maxLines="1"
