@@ -1,4 +1,4 @@
-package com.droibit.hello.firebase.view
+package com.droibit.hello.firebase.view.signin
 
 import android.app.Dialog
 import android.app.ProgressDialog

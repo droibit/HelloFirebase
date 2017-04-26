@@ -2,7 +2,6 @@ package com.droibit.hello.firebase.view.signin
 
 import android.support.v4.app.DialogFragment
 import android.support.v4.app.FragmentActivity
-import com.droibit.hello.firebase.view.ProgressDialogFragment
 import com.droibit.hello.firebase.R
 import com.droibit.hello.firebase.view.signin.HasProgressDialog.Companion.TAG_PROGRESS_DIALOG
 
