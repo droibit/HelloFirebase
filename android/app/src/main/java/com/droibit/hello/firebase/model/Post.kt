@@ -9,7 +9,7 @@ data class Post(
         var author: String,
         var title: String,
         var body: String,
-        var starCount: Int, val stars: Map<String, Boolean>) {
+        var starCount: Int, val stars: MutableMap<String, Boolean>) {
 
     constructor() :
             this(uid = "", author = "", title = "", body = "", starCount = 0, stars = hashMapOf())

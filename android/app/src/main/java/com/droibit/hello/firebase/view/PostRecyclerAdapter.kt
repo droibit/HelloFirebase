@@ -40,6 +40,10 @@ class PostRecyclerAdapter(val userId: String, postsQuery: Query) :
         val postId = databaseRef.key
 
         viewHolder.bind(userId, post) {
+            when (it.id) {
+                R.id.item_container -> clickListener?.onItemClick(postId)
+                R.id.star_container -> clickListener?.onStarClick(postId, post)
+            }
         }
     }
 }

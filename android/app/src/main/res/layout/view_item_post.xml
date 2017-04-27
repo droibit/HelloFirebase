@@ -29,6 +29,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
         app:cardCornerRadius="2dp"
+        app:setOnClickListener="@{listener::onClick}"
         tools:ignore="RtlHardcoded,ContentDescription">
 
         <android.support.constraint.ConstraintLayout
