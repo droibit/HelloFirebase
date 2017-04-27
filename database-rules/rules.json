@@ -20,7 +20,7 @@
       "$postid": {
         "stars": {
           "$uid": {
-            ".validate": "auth != null && $uid == auth.uid"
+            ".validate": "$uid == auth.uid"
           }
         },
         ".validate": "newData.hasChildren(['uid', 'author', 'title', 'body', 'starCount'])",
@@ -50,7 +50,7 @@
       "$uid": {
         "$postid": {
           ".validate": "data.val() != null || newData.child('uid').val() == auth.uid",
-          ".write": "auth != null && $uid == auth.uid"
+          ".write": "$uid == auth.uid"
         }
       },
       ".read": "true"

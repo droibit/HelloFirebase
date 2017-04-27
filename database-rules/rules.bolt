@@ -20,7 +20,7 @@ path /posts {
 
   /{postid} is Post {
     /stars/{uid} {
-      validate() { isUser(key()) }
+      validate() { uid == currentUser() }
     }
   }
 }
@@ -48,7 +48,7 @@ path /user-posts {
 }
 
 type ListedPostId {
-  write() { isUser(uid) }
+  write() { uid == currentUser() }
   validate() { prior(this) != null || this.uid == currentUser() }
 }
 
