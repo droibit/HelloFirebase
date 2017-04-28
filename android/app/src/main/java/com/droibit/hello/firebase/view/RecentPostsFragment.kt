@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.droibit.hello.firebase.R
 import com.droibit.hello.firebase.databinding.FragmentAllPostBinding
 import com.droibit.hello.firebase.model.Post
+import com.droibit.hello.firebase.view.detail.PostDetailActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -58,6 +59,8 @@ class RecentPostsFragment : Fragment(), PostRecyclerAdapter.OnClickListener {
     // PostRecyclerAdapter.OnClickListener
 
     override fun onItemClick(postId: String) {
+        val intent = PostDetailActivity.createIntent(context, postId)
+        context.startActivity(intent)
     }
 
     override fun onStarClick(postId: String, post: Post) {
