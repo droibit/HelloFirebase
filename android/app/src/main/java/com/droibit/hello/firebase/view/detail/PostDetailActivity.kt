@@ -30,4 +30,8 @@ class PostDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_post_detail)
     }
+
+    fun onSendClick() {
+
+    }
 }
