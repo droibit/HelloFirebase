@@ -39,6 +39,7 @@ dependencies {
     compile "com.android.support:design:$supportLibraryVersion"
     compile "com.google.firebase:firebase-auth:$firebaseVersion"
     compile "com.google.firebase:firebase-database:$firebaseVersion"
+    compile "com.google.firebase:firebase-crash:$firebaseVersion"
     compile("com.firebaseui:firebase-ui-database:$firebaseUiVersion") {
         exclude group: 'com.android.support'
     }
