@@ -16,6 +16,7 @@
 		DA7C8BBB1ECB3F7D0066B17C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7C8BBA1ECB3F7D0066B17C /* Assets.xcassets */; };
 		DA7C8BBE1ECB3F7D0066B17C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7C8BBC1ECB3F7D0066B17C /* LaunchScreen.storyboard */; };
 		DA7C8BC91ECB3F7D0066B17C /* HelloFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8BC81ECB3F7D0066B17C /* HelloFirebaseTests.swift */; };
+		DAE0BA031ECBE1FE007F2362 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0BA021ECBE1FE007F2362 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		DA7C8BC41ECB3F7D0066B17C /* HelloFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7C8BC81ECB3F7D0066B17C /* HelloFirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloFirebaseTests.swift; sourceTree = "<group>"; };
 		DA7C8BCA1ECB3F7D0066B17C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAE0BA021ECBE1FE007F2362 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		EA18755497612FE7677C671B /* Pods_HelloFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				DA7C8BB31ECB3F7D0066B17C /* AppDelegate.swift */,
 				DA7C8BB51ECB3F7D0066B17C /* ViewController.swift */,
 				DA7C8BB71ECB3F7D0066B17C /* Main.storyboard */,
+				DAE0BA021ECBE1FE007F2362 /* R.generated.swift */,
 				DA7C8BBA1ECB3F7D0066B17C /* Assets.xcassets */,
 				DA7C8BBC1ECB3F7D0066B17C /* LaunchScreen.storyboard */,
 				DA7C8BBF1ECB3F7D0066B17C /* Info.plist */,
@@ -140,6 +143,7 @@
 			buildPhases = (
 				9F160302D814E3CEE2495E92 /* [CP] Check Pods Manifest.lock */,
 				DA7C8BAC1ECB3F7D0066B17C /* Sources */,
+				DAE0BA011ECBE16D007F2362 /* ShellScript */,
 				DA7C8BAD1ECB3F7D0066B17C /* Frameworks */,
 				DA7C8BAE1ECB3F7D0066B17C /* Resources */,
 				7596717A89D9934998AB4269 /* [CP] Embed Pods Frameworks */,
@@ -327,6 +331,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		DAE0BA011ECBE16D007F2362 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -336,6 +353,7 @@
 			files = (
 				DA7C8BB61ECB3F7D0066B17C /* ViewController.swift in Sources */,
 				DA7C8BB41ECB3F7D0066B17C /* AppDelegate.swift in Sources */,
+				DAE0BA031ECBE1FE007F2362 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

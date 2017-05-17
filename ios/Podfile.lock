@@ -51,6 +51,9 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
+  - R.swift (3.2.0):
+    - R.swift.Library (~> 3.0.2)
+  - R.swift.Library (3.0.2)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -59,6 +62,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI/Database
   - GoogleSignIn
+  - R.swift
 
 SPEC CHECKSUMS:
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
@@ -73,7 +77,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  R.swift: 207a372a2b5977caef440c696a368009460641d1
+  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
 
-PODFILE CHECKSUM: d428b1a5fa3de7661c5bad4f34088fbd5f7fbf51
+PODFILE CHECKSUM: 91da52f4e27229a854a874f8909139359af2f3b4
 
 COCOAPODS: 1.1.1
