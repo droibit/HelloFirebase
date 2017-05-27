@@ -55,8 +55,47 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 0 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 2 view controllers.
   struct segue {
+    /// This struct is generated for `EmailSignInViewController`, and contains static references to 1 segues.
+    struct emailSignInViewController {
+      /// Segue identifier `close`.
+      static let close: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, EmailSignInViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "close")
+      
+      /// Optionally returns a typed version of segue `close`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func close(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, EmailSignInViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.emailSignInViewController.close, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `GoogleSignInViewController`, and contains static references to 2 segues.
+    struct googleSignInViewController {
+      /// Segue identifier `SignIn`.
+      static let signIn: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "SignIn")
+      /// Segue identifier `SignUp`.
+      static let signUp: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "SignUp")
+      
+      /// Optionally returns a typed version of segue `SignIn`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func signIn(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.googleSignInViewController.signIn, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `SignUp`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func signUp(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.googleSignInViewController.signUp, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,6 +29,10 @@
         <scene sceneID="LpG-0M-0x1">
             <objects>
                 <viewController id="2T3-8x-tIW" customClass="GoogleSignInViewController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NJl-a7-yhn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Etn-TY-d3h"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xs8-et-duG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,19 +47,124 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="31"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="or Sign in with email" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vgS-u9-RZb">
+                                <rect key="frame" x="64" y="513" width="247" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="ilf-ul-53Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="PtO-28-ZOw" appends="YES" id="n3P-i7-1Z5"/>
+                                </connections>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Sign up with email" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jof-Go-lvS">
+                                <rect key="frame" x="64" y="464" width="247" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="w52-nY-IgM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aSt-Wr-jy3" appends="YES" id="KY1-er-5CV"/>
+                                </connections>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9t1-Xb-lat" customClass="GIDSignInButton">
+                                <rect key="frame" x="32" y="388" width="311" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="sD3-60-qNm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vgS-u9-RZb" firstAttribute="top" secondItem="jof-Go-lvS" secondAttribute="bottom" constant="12" id="1I4-Mb-kjL"/>
+                            <constraint firstItem="vgS-u9-RZb" firstAttribute="centerX" secondItem="xs8-et-duG" secondAttribute="centerX" id="6Ve-Y6-sgy"/>
                             <constraint firstItem="GUz-EY-tJm" firstAttribute="top" secondItem="xs8-et-duG" secondAttribute="topMargin" constant="100" id="HRc-3z-wfx"/>
-                            <constraint firstItem="GUz-EY-tJm" firstAttribute="leading" secondItem="xs8-et-duG" secondAttribute="leadingMargin" id="MTX-TI-5hi"/>
-                            <constraint firstItem="GUz-EY-tJm" firstAttribute="trailing" secondItem="xs8-et-duG" secondAttribute="trailingMargin" id="ayg-zK-Kg4"/>
+                            <constraint firstItem="jof-Go-lvS" firstAttribute="top" secondItem="9t1-Xb-lat" secondAttribute="bottom" constant="16" id="K72-5T-73h"/>
+                            <constraint firstItem="jof-Go-lvS" firstAttribute="leading" secondItem="xs8-et-duG" secondAttribute="leading" constant="64" id="LP2-8c-LS1"/>
+                            <constraint firstItem="9t1-Xb-lat" firstAttribute="leading" secondItem="xs8-et-duG" secondAttribute="leading" constant="32" id="Ljj-aH-gsh"/>
+                            <constraint firstItem="vgS-u9-RZb" firstAttribute="leading" secondItem="xs8-et-duG" secondAttribute="leading" constant="64" id="WFw-Mu-VZ2"/>
+                            <constraint firstAttribute="trailing" secondItem="jof-Go-lvS" secondAttribute="trailing" constant="64" id="bt9-wF-bhy"/>
+                            <constraint firstAttribute="trailing" secondItem="vgS-u9-RZb" secondAttribute="trailing" constant="64" id="cW2-fy-pRq"/>
+                            <constraint firstItem="9t1-Xb-lat" firstAttribute="centerX" secondItem="xs8-et-duG" secondAttribute="centerX" id="eHw-kk-R7I"/>
+                            <constraint firstAttribute="trailing" secondItem="9t1-Xb-lat" secondAttribute="trailing" constant="32" id="laG-tu-qZ5"/>
+                            <constraint firstItem="jof-Go-lvS" firstAttribute="centerX" secondItem="xs8-et-duG" secondAttribute="centerX" id="o6C-rT-WEh"/>
+                            <constraint firstItem="GUz-EY-tJm" firstAttribute="trailing" secondItem="xs8-et-duG" secondAttribute="trailingMargin" id="oUL-9y-ddG"/>
+                            <constraint firstItem="GUz-EY-tJm" firstAttribute="leading" secondItem="xs8-et-duG" secondAttribute="leadingMargin" id="oyA-gU-hC9"/>
+                            <constraint firstItem="Etn-TY-d3h" firstAttribute="top" secondItem="vgS-u9-RZb" secondAttribute="bottom" constant="120" id="wnC-4T-D9s"/>
                             <constraint firstItem="GUz-EY-tJm" firstAttribute="centerX" secondItem="xs8-et-duG" secondAttribute="centerX" id="z49-2J-YXi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="googleSignInButton" destination="9t1-Xb-lat" id="WIY-Io-wsP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWa-iW-G39" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aSt-Wr-jy3" userLabel="SignUp Tap Gesture Recognizer">
+                    <connections>
+                        <segue destination="HwQ-n4-ARG" kind="presentation" identifier="SignUp" id="RIu-gM-CEg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="PtO-28-ZOw" userLabel="SignIn Tap Gesture Recognizer">
+                    <connections>
+                        <segue destination="HwQ-n4-ARG" kind="presentation" identifier="SignIn" id="jxh-Am-Jxa"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="816.79999999999995" y="-137.18140929535232"/>
+            <point key="canvasLocation" x="965.60000000000002" y="-258.62068965517244"/>
+        </scene>
+        <!--Email Sign In View Controller-->
+        <scene sceneID="2sc-lo-Lnl">
+            <objects>
+                <viewController id="H1I-M0-e1K" customClass="EmailSignInViewController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rsy-Zi-Tg6"/>
+                        <viewControllerLayoutGuide type="bottom" id="bKn-7w-wmg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="crW-RS-J65">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ulf-8Y-1XL">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="GAh-hI-AaD">
+                            <connections>
+                                <segue destination="Qgk-SB-8Ml" kind="unwind" identifier="close" unwindAction="unwindWithSegue:" id="Yg3-dj-NoQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90z-ec-Kd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Qgk-SB-8Ml" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2630" y="-260"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cqt-M3-IvB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HwQ-n4-ARG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xzb-9q-BAT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H1I-M0-e1K" kind="relationship" relationship="rootViewController" id="7Ap-XL-Wl6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OxG-2z-5wl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="-259.52023988005999"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jxh-Am-Jxa"/>
+    </inferredMetricsTieBreakers>
 </document>
