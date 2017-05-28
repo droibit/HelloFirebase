@@ -12,37 +12,48 @@ import SVProgressHUD
 
 class EmailSignInViewController: UIViewController {
     
-    typealias Task = (String, String, @escaping FirebaseAuth.AuthResultCallback) -> Void
+    typealias Action = (String, String,@escaping FirebaseAuth.AuthResultCallback) -> Void
     
     enum SignInType: String {
         case SignUp = "Sign Up"
         case SignIn = "Sign In"
     }
     
+    
+    @IBOutlet weak var actionButton: UIButton!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     var signInType: SignInType! = nil {
         willSet {
             switch newValue! {
             case .SignUp:
-                task = self.signUp
+                action = self.signUp
             case .SignIn:
-                task = self.signIn
+                action = self.signIn
             }
         }
     }
     
     var completed = false
     
-    private var task: Task!
+    private var action: Action!
     
-    fileprivate let auth = Auth.auth()
+    deinit {
+        print("deinit \(className)")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
+        
         let navigationViewController = parent as! UINavigationController
         navigationViewController.navigationBar.topItem?.title = signInType.rawValue
-
-        // Do any additional setup after loading the view.
+        
+        actionButton.setTitle(signInType.rawValue, for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +61,45 @@ class EmailSignInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapActionButton(_ sender: Any) {
+        guard let email = emailTextField.text,
+                let password = passwordTextField.text, !password.isEmpty && !email.isEmpty else {
+                    SVProgressHUD.setDefaultMaskType(.none)
+                    SVProgressHUD.showError(withStatus: "email/password can't be empty")
+                    SVProgressHUD.dismiss(withDelay: 1.0)
+            return
+        }
+  
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.show()
+        action(email, password) { [weak self] (firebaseUser, error) in
+            if let error = error {
+                DispatchQueue.main.async {
+                    SVProgressHUD.showError(withStatus: error.localizedDescription)
+                    SVProgressHUD.dismiss(withDelay: 2.0)
+                }
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = firebaseUser else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.showError(withStatus: "Failed")
+                    SVProgressHUD.dismiss(withDelay: 1.0)
+                }
+                return
+            }
+            
+            print("User: \(user.providerData.first!.email!)")
+            self?.completed = true
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss() {
+                    self?.performSegue(withIdentifier: R.segue.emailSignInViewController.close, sender: nil)
+                }
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -65,11 +115,11 @@ class EmailSignInViewController: UIViewController {
 extension EmailSignInViewController {
     
     func signUp(email: String, password: String, completion: @escaping FirebaseAuth.AuthResultCallback) {
-        auth.createUser(withEmail: email, password: password, completion: completion)
+        Auth.auth().createUser(withEmail: email, password: password, completion: completion)
     }
     
     func signIn(email: String, password: String, completion: @escaping FirebaseAuth.AuthResultCallback) {
-        auth.signIn(withEmail: email, password: password, completion: completion)
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
     
     

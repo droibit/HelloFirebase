@@ -11,8 +11,7 @@ import Firebase
 import GoogleSignIn
 
 class GoogleSignInViewController: UIViewController {
-    
-    let sharedGoogleSignIn: GIDSignIn! = GIDSignIn.sharedInstance()
+
     
     let auth = Auth.auth()
     
@@ -26,8 +25,9 @@ class GoogleSignInViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        sharedGoogleSignIn.uiDelegate = self
-        sharedGoogleSignIn.delegate = self
+        let gooleSignIn = GIDSignIn.sharedInstance()!
+        gooleSignIn.uiDelegate = self
+        gooleSignIn.delegate = self
         
         googleSignInButton.style = .wide
     }
@@ -61,7 +61,7 @@ extension GoogleSignInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
             print("Google SignIn Error: \(e.localizedDescription)")
             return
         }
-        print("Google SignIn Successed: \(user)")
+        print("Google SignIn Successed: \(user?.profile.email)")
         
         guard let authentication = user.authentication else {
             return
@@ -87,8 +87,8 @@ extension GoogleSignInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
         // TODO: show progress
         auth.signIn(with: credential) { user, error in
             // TODO: hide progress
-            if let e = error {
-                print("Firebase SignIn Error \(e.localizedDescription)")
+            if let error = error {
+                print("Firebase SignIn Error \(error.localizedDescription)")
                 return
             }
         }

@@ -122,7 +122,43 @@
                     <view key="view" contentMode="scaleToFill" id="crW-RS-J65">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPO-7a-34V">
+                                <rect key="frame" x="32" y="140" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WXt-dS-Igh">
+                                <rect key="frame" x="32" y="186" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WW-fI-Iir">
+                                <rect key="frame" x="137.5" y="248" width="100" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="1Nd-pw-Usg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapActionButton:" destination="H1I-M0-e1K" eventType="touchUpInside" id="FnT-KK-7TK"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WXt-dS-Igh" firstAttribute="top" secondItem="lPO-7a-34V" secondAttribute="bottom" constant="16" id="2lQ-Bc-nHt"/>
+                            <constraint firstItem="lPO-7a-34V" firstAttribute="top" secondItem="Rsy-Zi-Tg6" secondAttribute="bottom" constant="120" id="5NA-xx-KlU"/>
+                            <constraint firstItem="WXt-dS-Igh" firstAttribute="leading" secondItem="crW-RS-J65" secondAttribute="leading" constant="32" id="6TI-BQ-Tw4"/>
+                            <constraint firstAttribute="trailing" secondItem="lPO-7a-34V" secondAttribute="trailing" constant="32" id="JFc-pI-1BR"/>
+                            <constraint firstAttribute="trailing" secondItem="WXt-dS-Igh" secondAttribute="trailing" constant="32" id="hD3-E9-2LE"/>
+                            <constraint firstItem="lPO-7a-34V" firstAttribute="centerX" secondItem="crW-RS-J65" secondAttribute="centerX" id="kXl-vD-4dB"/>
+                            <constraint firstItem="7WW-fI-Iir" firstAttribute="centerX" secondItem="crW-RS-J65" secondAttribute="centerX" id="r9H-35-rB2"/>
+                            <constraint firstItem="lPO-7a-34V" firstAttribute="leading" secondItem="crW-RS-J65" secondAttribute="leading" constant="32" id="xXb-Lr-eXv"/>
+                            <constraint firstItem="7WW-fI-Iir" firstAttribute="top" secondItem="WXt-dS-Igh" secondAttribute="bottom" constant="32" id="zQc-93-6gR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ulf-8Y-1XL">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="GAh-hI-AaD">
@@ -131,11 +167,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="actionButton" destination="7WW-fI-Iir" id="3x0-YN-1Ku"/>
+                        <outlet property="emailTextField" destination="lPO-7a-34V" id="eJ3-bu-Lga"/>
+                        <outlet property="passwordTextField" destination="WXt-dS-Igh" id="PXn-e1-LTu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90z-ec-Kd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Qgk-SB-8Ml" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2630" y="-260"/>
+            <point key="canvasLocation" x="2629.5999999999999" y="-260.41979010494754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cqt-M3-IvB">
