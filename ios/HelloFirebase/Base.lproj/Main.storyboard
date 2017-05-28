@@ -13,22 +13,14 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <containerView key="view" opaque="NO" contentMode="scaleToFill" id="4eS-Ow-EIK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <connections>
-                            <segue destination="2T3-8x-tIW" kind="embed" id="pet-6K-BPa"/>
-                        </connections>
-                    </containerView>
-                </viewController>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
         <!--Google Sign In View Controller-->
         <scene sceneID="LpG-0M-0x1">
             <objects>
-                <viewController id="2T3-8x-tIW" customClass="GoogleSignInViewController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoogleSignIn" id="2T3-8x-tIW" customClass="GoogleSignInViewController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NJl-a7-yhn"/>
                         <viewControllerLayoutGuide type="bottom" id="Etn-TY-d3h"/>
