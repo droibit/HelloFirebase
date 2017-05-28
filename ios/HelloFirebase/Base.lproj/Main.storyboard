@@ -108,12 +108,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWa-iW-G39" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="aSt-Wr-jy3" userLabel="SignUp Tap Gesture Recognizer">
                     <connections>
-                        <segue destination="HwQ-n4-ARG" kind="presentation" identifier="SignUp" id="RIu-gM-CEg"/>
+                        <segue destination="HwQ-n4-ARG" kind="presentation" identifier="Sign Up" id="RIu-gM-CEg"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="PtO-28-ZOw" userLabel="SignIn Tap Gesture Recognizer">
                     <connections>
-                        <segue destination="HwQ-n4-ARG" kind="presentation" identifier="SignIn" id="jxh-Am-Jxa"/>
+                        <segue destination="HwQ-n4-ARG" kind="presentation" identifier="Sign In" id="jxh-Am-Jxa"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
