@@ -74,19 +74,19 @@ struct R: Rswift.Validatable {
     
     /// This struct is generated for `GoogleSignInViewController`, and contains static references to 2 segues.
     struct googleSignInViewController {
-      /// Segue identifier `SignIn`.
-      static let signIn: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "SignIn")
-      /// Segue identifier `SignUp`.
-      static let signUp: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "SignUp")
+      /// Segue identifier `Sign In`.
+      static let signIn: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "Sign In")
+      /// Segue identifier `Sign Up`.
+      static let signUp: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "Sign Up")
       
-      /// Optionally returns a typed version of segue `SignIn`.
+      /// Optionally returns a typed version of segue `Sign In`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func signIn(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.googleSignInViewController.signIn, segue: segue)
       }
       
-      /// Optionally returns a typed version of segue `SignUp`.
+      /// Optionally returns a typed version of segue `Sign Up`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func signUp(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, GoogleSignInViewController, UIKit.UINavigationController>? {

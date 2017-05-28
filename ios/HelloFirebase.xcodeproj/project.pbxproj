@@ -11,6 +11,7 @@
 		51B66A7D4C0CEFF0DBF27F99 /* Pods_HelloFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA18755497612FE7677C671B /* Pods_HelloFirebase.framework */; };
 		DA0580331ED9D457002251F0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0580321ED9D457002251F0 /* Extensions.swift */; };
 		DA0580381ED9EEF8002251F0 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */; };
+		DA05803C1EDAE94A002251F0 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA05803B1EDAE94A002251F0 /* SVProgressHUD.framework */; };
 		DA5C635B1ED3331800223913 /* GoogleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C635A1ED3331800223913 /* GoogleSignInViewController.swift */; };
 		DA6EDF1F1ECB44B100E8F544 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6EDF1E1ECB44B100E8F544 /* GoogleService-Info.plist */; };
 		DA7C8BB41ECB3F7D0066B17C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8BB31ECB3F7D0066B17C /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		A1325FCB7B954E7C04945A4E /* Pods-HelloFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-HelloFirebase/Pods-HelloFirebase.release.xcconfig"; sourceTree = "<group>"; };
 		DA0580321ED9D457002251F0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
+		DA05803B1EDAE94A002251F0 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		DA5C635A1ED3331800223913 /* GoogleSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignInViewController.swift; sourceTree = "<group>"; };
 		DA5C63621ED3480A00223913 /* HelloFirebase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloFirebase-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA6EDF1E1ECB44B100E8F544 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA05803C1EDAE94A002251F0 /* SVProgressHUD.framework in Frameworks */,
 				51B66A7D4C0CEFF0DBF27F99 /* Pods_HelloFirebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +83,7 @@
 		AD71B08FA37E9389ADF0C04D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA05803B1EDAE94A002251F0 /* SVProgressHUD.framework */,
 				EA18755497612FE7677C671B /* Pods_HelloFirebase.framework */,
 				7FA991811CF833E1D2EFA32C /* Pods_HelloFirebaseTests.framework */,
 			);
@@ -365,12 +369,13 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"\n/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -527,6 +532,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HelloFirebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droibit.touch.HelloFirebase;
@@ -543,6 +552,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HelloFirebase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droibit.touch.HelloFirebase;
