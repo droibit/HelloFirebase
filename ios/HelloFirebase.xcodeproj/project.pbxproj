@@ -20,6 +20,8 @@
 		DA7C8BBB1ECB3F7D0066B17C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7C8BBA1ECB3F7D0066B17C /* Assets.xcassets */; };
 		DA7C8BBE1ECB3F7D0066B17C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7C8BBC1ECB3F7D0066B17C /* LaunchScreen.storyboard */; };
 		DA7C8BC91ECB3F7D0066B17C /* HelloFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8BC81ECB3F7D0066B17C /* HelloFirebaseTests.swift */; };
+		DA8DBF9C1EDDB527000165DF /* UserStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9B1EDDB527000165DF /* UserStorable.swift */; };
+		DA8DBF9E1EDDC3F6000165DF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9D1EDDC3F6000165DF /* User.swift */; };
 		DAE0BA031ECBE1FE007F2362 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0BA021ECBE1FE007F2362 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		DA7C8BC41ECB3F7D0066B17C /* HelloFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7C8BC81ECB3F7D0066B17C /* HelloFirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloFirebaseTests.swift; sourceTree = "<group>"; };
 		DA7C8BCA1ECB3F7D0066B17C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA8DBF9B1EDDB527000165DF /* UserStorable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStorable.swift; sourceTree = "<group>"; };
+		DA8DBF9D1EDDC3F6000165DF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DAE0BA021ECBE1FE007F2362 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		EA18755497612FE7677C671B /* Pods_HelloFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +117,7 @@
 		DA7C8BB21ECB3F7D0066B17C /* HelloFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				DA8DBF9A1EDDB4D4000165DF /* Model */,
 				DAE0BA051ECBE58F007F2362 /* Resources */,
 				DAE0BA041ECBE575007F2362 /* ViewController */,
 				DA7C8BB31ECB3F7D0066B17C /* AppDelegate.swift */,
@@ -130,6 +135,15 @@
 				DA7C8BCA1ECB3F7D0066B17C /* Info.plist */,
 			);
 			path = HelloFirebaseTests;
+			sourceTree = "<group>";
+		};
+		DA8DBF9A1EDDB4D4000165DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA8DBF9B1EDDB527000165DF /* UserStorable.swift */,
+				DA8DBF9D1EDDC3F6000165DF /* User.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		DAE0BA041ECBE575007F2362 /* ViewController */ = {
@@ -384,9 +398,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8DBF9C1EDDB527000165DF /* UserStorable.swift in Sources */,
 				DA0580331ED9D457002251F0 /* Extensions.swift in Sources */,
 				DA7C8BB61ECB3F7D0066B17C /* MainViewController.swift in Sources */,
 				DA7C8BB41ECB3F7D0066B17C /* AppDelegate.swift in Sources */,
+				DA8DBF9E1EDDC3F6000165DF /* User.swift in Sources */,
 				DA0580381ED9EEF8002251F0 /* EmailSignInViewController.swift in Sources */,
 				DA5C635B1ED3331800223913 /* GoogleSignInViewController.swift in Sources */,
 				DAE0BA031ECBE1FE007F2362 /* R.generated.swift in Sources */,

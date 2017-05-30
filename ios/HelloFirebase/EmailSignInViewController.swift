@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class EmailSignInViewController: UIViewController {
+class EmailSignInViewController: UIViewController, UserStorable {
     
     typealias Action = (String, String,@escaping FirebaseAuth.AuthResultCallback) -> Void
     
@@ -72,33 +72,41 @@ class EmailSignInViewController: UIViewController {
   
         SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.show()
-        action(email, password) { [weak self] (firebaseUser, error) in
+        action(email, password) { (firebaseUser, error) in
             if let error = error {
-                DispatchQueue.main.async {
-                    SVProgressHUD.showError(withStatus: error.localizedDescription)
-                    SVProgressHUD.dismiss(withDelay: 2.0)
-                }
+                self.showError(message: error.localizedDescription, dismissDelay: 2.0)
                 print("Error: \(error.localizedDescription)")
                 return
             }
             
             guard let user = firebaseUser else {
-                DispatchQueue.main.async {
-                    SVProgressHUD.showError(withStatus: "Failed")
-                    SVProgressHUD.dismiss(withDelay: 1.0)
-                }
+                self.showError(message: "Failed", dismissDelay: 1.0)
                 return
             }
             
-            print("User: \(user.providerData.first!.email!)")
-            self?.completed = true
-            
-            DispatchQueue.main.async {
-                SVProgressHUD.dismiss() {
-                    self?.performSegue(withIdentifier: R.segue.emailSignInViewController.close, sender: nil)
+            print("SignIn/Up User: \(user.providerData.first!.email!)")
+            self.storeUser(userId: user.uid, email: user.email!) { successful in
+                if !successful {
+                    self.showError(message: "Failed", dismissDelay: 1.0)
+                    return
+                }
+                self.completed = successful
+
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss {
+                        self.performSegue(withIdentifier: R.segue.emailSignInViewController.close, sender: nil)
+                    }
                 }
             }
         }
+    }
+    
+    private func showError(message: String, dismissDelay: TimeInterval) {
+        DispatchQueue.main.async {
+            SVProgressHUD.showError(withStatus: message)
+            SVProgressHUD.dismiss(withDelay: dismissDelay)
+        }
+
     }
 
     /*
