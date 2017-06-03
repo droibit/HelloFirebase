@@ -166,13 +166,19 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let googleSignIn = StoryboardViewControllerResource<GoogleSignInViewController>(identifier: "GoogleSignIn")
       let name = "Main"
+      let tabBar = StoryboardViewControllerResource<TabBarController>(identifier: "tabBar")
       
       func googleSignIn(_: Void = ()) -> GoogleSignInViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: googleSignIn)
       }
       
+      func tabBar(_: Void = ()) -> TabBarController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBar)
+      }
+      
       static func validate() throws {
         if _R.storyboard.main().googleSignIn() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'googleSignIn' could not be loaded from storyboard 'Main' as 'GoogleSignInViewController'.") }
+        if _R.storyboard.main().tabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBar' could not be loaded from storyboard 'Main' as 'TabBarController'.") }
       }
       
       fileprivate init() {}

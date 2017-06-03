@@ -17,6 +17,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mMi-s9-HgU">
+            <objects>
+                <viewController storyboardIdentifier="tabBar" id="uAT-Pc-jXS" customClass="TabBarController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ikx-BK-T1C"/>
+                        <viewControllerLayoutGuide type="bottom" id="KdW-XQ-2x6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DVG-zj-9jL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RPx-b0-jOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="452"/>
+        </scene>
         <!--Google Sign In View Controller-->
         <scene sceneID="LpG-0M-0x1">
             <objects>
@@ -183,7 +201,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HwQ-n4-ARG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xzb-9q-BAT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xzb-9q-BAT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -198,6 +216,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jxh-Am-Jxa"/>
+        <segue reference="RIu-gM-CEg"/>
     </inferredMetricsTieBreakers>
 </document>

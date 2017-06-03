@@ -19,7 +19,6 @@ class EmailSignInViewController: UIViewController, UserStorable {
         case SignIn = "Sign In"
     }
     
-    
     @IBOutlet weak var actionButton: UIButton!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -82,7 +81,7 @@ class EmailSignInViewController: UIViewController, UserStorable {
                 return
             }
             
-            print("SignIn/Up User: \(user.providerData.first!.email!)")
+            print("Firebase signedIn/Up User: \(user.providerData.first!.email!)")
             self.storeUser(userId: user.uid, email: user.email!) { successful in
                 if !successful {
                     self.showError(message: "Failed", dismissDelay: 1.0)

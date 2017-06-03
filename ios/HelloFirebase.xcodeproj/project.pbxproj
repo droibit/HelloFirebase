@@ -23,6 +23,7 @@
 		DA8DBF9C1EDDB527000165DF /* UserStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9B1EDDB527000165DF /* UserStorable.swift */; };
 		DA8DBF9E1EDDC3F6000165DF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9D1EDDC3F6000165DF /* User.swift */; };
 		DA8DBFA01EE27771000165DF /* SignInExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9F1EE27771000165DF /* SignInExtension.swift */; };
+		DA8DBFA21EE2810B000165DF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBFA11EE2810B000165DF /* TabBarController.swift */; };
 		DAE0BA031ECBE1FE007F2362 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0BA021ECBE1FE007F2362 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		DA8DBF9B1EDDB527000165DF /* UserStorable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStorable.swift; sourceTree = "<group>"; };
 		DA8DBF9D1EDDC3F6000165DF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DA8DBF9F1EE27771000165DF /* SignInExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInExtension.swift; sourceTree = "<group>"; };
+		DA8DBFA11EE2810B000165DF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DAE0BA021ECBE1FE007F2362 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		EA18755497612FE7677C671B /* Pods_HelloFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 				DA5C635A1ED3331800223913 /* GoogleSignInViewController.swift */,
 				DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */,
 				DA8DBF9F1EE27771000165DF /* SignInExtension.swift */,
+				DA8DBFA11EE2810B000165DF /* TabBarController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				DA8DBF9C1EDDB527000165DF /* UserStorable.swift in Sources */,
 				DA0580331ED9D457002251F0 /* Extensions.swift in Sources */,
 				DA7C8BB61ECB3F7D0066B17C /* MainViewController.swift in Sources */,
+				DA8DBFA21EE2810B000165DF /* TabBarController.swift in Sources */,
 				DA7C8BB41ECB3F7D0066B17C /* AppDelegate.swift in Sources */,
 				DA8DBF9E1EDDC3F6000165DF /* User.swift in Sources */,
 				DA0580381ED9EEF8002251F0 /* EmailSignInViewController.swift in Sources */,

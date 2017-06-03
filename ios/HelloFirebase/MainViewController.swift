@@ -26,6 +26,23 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func replaceTabBarViewController(with fromViewController: UIViewController) {
+        let toViewController = R.storyboard.main.tabBar()!
+        
+        fromViewController.willMove(toParentViewController: nil)
+        addChildViewController(toViewController)
+        
+        transition(from: fromViewController,
+                   to: toViewController,
+                   duration: 0.25,
+                   options: [.curveEaseInOut, .transitionCrossDissolve],
+                   animations: nil) { _ in
+                    fromViewController.removeFromParentViewController()
+                    toViewController.didMove(toParentViewController: self)
+                    print("Replaced TabBarController")
+        }
+    }
+    
     private func displayContentViewController(_ viewController: UIViewController) {
         addChildViewController(viewController)
         viewController.view.frame = self.view.bounds
