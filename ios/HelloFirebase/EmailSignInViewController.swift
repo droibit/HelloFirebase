@@ -64,18 +64,16 @@ class EmailSignInViewController: UIViewController, UserStorable {
     @IBAction func didTapActionButton(_ sender: Any) {
         guard let email = emailTextField.text,
                 let password = passwordTextField.text, !password.isEmpty && !email.isEmpty else {
-                    SVProgressHUD.setDefaultMaskType(.none)
-                    SVProgressHUD.showError(withStatus: "email/password can't be empty")
-                    SVProgressHUD.dismiss(withDelay: 1.0)
+                    showError(message: "email/password can't be empty", dismissDelay: 1.0)
             return
         }
   
-        SVProgressHUD.setDefaultMaskType(.black)
-        SVProgressHUD.show()
+        showProgress()
+        
         action(email, password) { (firebaseUser, error) in
             if let error = error {
-                self.showError(message: error.localizedDescription, dismissDelay: 2.0)
                 print("Error: \(error.localizedDescription)")
+                self.showError(message: error.localizedDescription, dismissDelay: 2.0)
                 return
             }
             
@@ -91,24 +89,14 @@ class EmailSignInViewController: UIViewController, UserStorable {
                     return
                 }
                 self.completed = successful
-
-                DispatchQueue.main.async {
-                    SVProgressHUD.dismiss {
-                        self.performSegue(withIdentifier: R.segue.emailSignInViewController.close, sender: nil)
-                    }
+                
+                self.dismissProgress {
+                    self.performSegue(withIdentifier: R.segue.emailSignInViewController.close, sender: nil)
                 }
             }
         }
     }
     
-    private func showError(message: String, dismissDelay: TimeInterval) {
-        DispatchQueue.main.async {
-            SVProgressHUD.showError(withStatus: message)
-            SVProgressHUD.dismiss(withDelay: dismissDelay)
-        }
-
-    }
-
     /*
     // MARK: - Navigation
 
@@ -129,6 +117,4 @@ extension EmailSignInViewController {
     func signIn(email: String, password: String, completion: @escaping FirebaseAuth.AuthResultCallback) {
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
-    
-    
 }

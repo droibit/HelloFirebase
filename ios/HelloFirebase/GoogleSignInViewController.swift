@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import SVProgressHUD
 
-class GoogleSignInViewController: UIViewController {
+class GoogleSignInViewController: UIViewController, UserStorable {
 
     
     let auth = Auth.auth()
@@ -61,7 +62,7 @@ extension GoogleSignInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
             print("Google SignIn Error: \(e.localizedDescription)")
             return
         }
-        print("Google SignIn Successed: \(user?.profile.email)")
+        print("Google SignIn Successed: \(user!.profile.email)")
         
         guard let authentication = user.authentication else {
             return
@@ -73,18 +74,23 @@ extension GoogleSignInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
     }
     
     func sign(inWillDispatch signIn: GIDSignIn!, error: Error?) {
+        print("sign:inWillDispatch")
     }
     
     func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        print("signIn:present")
         present(viewController, animated: true, completion: nil)
     }
     
     func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        print("signIn:dismiss")
         viewController.dismiss(animated: true, completion: nil)
     }
     
     private func signInFirebase(with credential: AuthCredential) {
-        // TODO: show progress
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.show()
+
         auth.signIn(with: credential) { user, error in
             // TODO: hide progress
             if let error = error {
