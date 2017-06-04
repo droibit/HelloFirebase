@@ -40,8 +40,30 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `ic_history`.
+    static let ic_history = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_history")
+    /// Image `ic_person`.
+    static let ic_person = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_person")
+    /// Image `ic_whatshot`.
+    static let ic_whatshot = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_whatshot")
+    
+    /// `UIImage(named: "ic_history", bundle: ..., traitCollection: ...)`
+    static func ic_history(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_history, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_person", bundle: ..., traitCollection: ...)`
+    static func ic_person(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_person, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_whatshot", bundle: ..., traitCollection: ...)`
+    static func ic_whatshot(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_whatshot, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -177,6 +199,9 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "ic_history") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_history' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_person") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_person' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_whatshot") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_whatshot' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().googleSignIn() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'googleSignIn' could not be loaded from storyboard 'Main' as 'GoogleSignInViewController'.") }
         if _R.storyboard.main().tabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBar' could not be loaded from storyboard 'Main' as 'TabBarController'.") }
       }

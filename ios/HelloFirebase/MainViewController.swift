@@ -15,10 +15,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        if Auth.auth().currentUser == nil {
+        if Auth.auth().currentUser == nil {
             let googleSignInViewController = R.storyboard.main.googleSignIn()
             displayContentViewController(googleSignInViewController!)
-//        }
+        } else {
+            let tabBarViewController = R.storyboard.main.tabBar()!
+            displayContentViewController(tabBarViewController)
+        }
     }
 
     override func didReceiveMemoryWarning() {
