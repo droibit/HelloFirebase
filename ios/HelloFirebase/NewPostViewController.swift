@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import Firebase
+import SVProgressHUD
 
 class NewPostViewController: UIViewController {
 
     @IBOutlet weak var titleText: UITextField!
     
-    @IBOutlet weak var contentText: UITextField!
+    @IBOutlet weak var contentText: UITextView!
+    
+    private var databaseRef: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        databaseRef = Database.database().reference()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +37,49 @@ class NewPostViewController: UIViewController {
     
     @IBAction func didTapSend(_ sender: Any) {
         view.endEditing(true)
+        
+        guard let title = titleText.text,
+            let content = contentText.text, !title.isEmpty && !content.isEmpty else {
+                showError(message: "You have to input title and content.", dismissDelay: 1.5)
+                return
+        }
+        
+        let userId = Auth.auth().currentUser?.uid
+        
+        showProgress()
+        
+        sendPost(userId: userId!, title: title, content: content) { error in
+            if let error = error {
+                print("posting error: \(error.localizedDescription)")
+                self.showError(message: error.localizedDescription, dismissDelay: 2.0)
+                return
+            }
+            print("success posting")
+            
+            self.dismissProgress {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
+    
+    private func sendPost(userId: String, title: String, content: String, completion: @escaping (Error?)->Void) {
+        databaseRef.child("users").child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as! NSDictionary
+                let userName = value["userName"] as! String
+                let key = self.databaseRef.child("posts").childByAutoId().key
+                let post = Post(uid: userId, author: userName, title: title, body: content).toDictionary()
+                print("post: \(post)")
+            
+                let childUpdates = [
+                    "/posts/\(key)": post,
+                    "/user-posts/\(userId)/\(key)/": post
+                ]
+                self.databaseRef.updateChildValues(childUpdates, withCompletionBlock: { (error, ref) in
+                    completion(error)
+                })
+            })
+    }
+
     
     /*
     // MARK: - Navigation

@@ -9,7 +9,7 @@
 import Foundation
 import SVProgressHUD
 
-extension UserStorable where Self : UIViewController {
+extension UIViewController {
     
     func showProgress() {
         DispatchQueue.main.async {

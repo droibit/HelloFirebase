@@ -13,6 +13,7 @@
 		DA0580381ED9EEF8002251F0 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */; };
 		DA05803C1EDAE94A002251F0 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA05803B1EDAE94A002251F0 /* SVProgressHUD.framework */; };
 		DA2203E21EEC474300A4EA59 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2203E11EEC474300A4EA59 /* NewPostViewController.swift */; };
+		DA2203E41EEC6A6500A4EA59 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2203E31EEC6A6500A4EA59 /* Post.swift */; };
 		DA5C635B1ED3331800223913 /* GoogleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C635A1ED3331800223913 /* GoogleSignInViewController.swift */; };
 		DA6EDF1F1ECB44B100E8F544 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6EDF1E1ECB44B100E8F544 /* GoogleService-Info.plist */; };
 		DA7C8BB41ECB3F7D0066B17C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8BB31ECB3F7D0066B17C /* AppDelegate.swift */; };
@@ -23,7 +24,7 @@
 		DA7C8BC91ECB3F7D0066B17C /* HelloFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8BC81ECB3F7D0066B17C /* HelloFirebaseTests.swift */; };
 		DA8DBF9C1EDDB527000165DF /* UserStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9B1EDDB527000165DF /* UserStorable.swift */; };
 		DA8DBF9E1EDDC3F6000165DF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9D1EDDC3F6000165DF /* User.swift */; };
-		DA8DBFA01EE27771000165DF /* SignInExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9F1EE27771000165DF /* SignInExtension.swift */; };
+		DA8DBFA01EE27771000165DF /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBF9F1EE27771000165DF /* ViewControllerExtension.swift */; };
 		DA8DBFA21EE2810B000165DF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DBFA11EE2810B000165DF /* TabBarController.swift */; };
 		DAE0BA031ECBE1FE007F2362 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0BA021ECBE1FE007F2362 /* R.generated.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
 		DA05803B1EDAE94A002251F0 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		DA2203E11EEC474300A4EA59 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		DA2203E31EEC6A6500A4EA59 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DA5C635A1ED3331800223913 /* GoogleSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignInViewController.swift; sourceTree = "<group>"; };
 		DA5C63621ED3480A00223913 /* HelloFirebase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloFirebase-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA6EDF1E1ECB44B100E8F544 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		DA7C8BCA1ECB3F7D0066B17C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA8DBF9B1EDDB527000165DF /* UserStorable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStorable.swift; sourceTree = "<group>"; };
 		DA8DBF9D1EDDC3F6000165DF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		DA8DBF9F1EE27771000165DF /* SignInExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInExtension.swift; sourceTree = "<group>"; };
+		DA8DBF9F1EE27771000165DF /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		DA8DBFA11EE2810B000165DF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DAE0BA021ECBE1FE007F2362 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		EA18755497612FE7677C671B /* Pods_HelloFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 			children = (
 				DA8DBF9B1EDDB527000165DF /* UserStorable.swift */,
 				DA8DBF9D1EDDC3F6000165DF /* User.swift */,
+				DA2203E31EEC6A6500A4EA59 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -158,7 +161,7 @@
 				DA7C8BB51ECB3F7D0066B17C /* MainViewController.swift */,
 				DA5C635A1ED3331800223913 /* GoogleSignInViewController.swift */,
 				DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */,
-				DA8DBF9F1EE27771000165DF /* SignInExtension.swift */,
+				DA8DBF9F1EE27771000165DF /* ViewControllerExtension.swift */,
 				DA8DBFA11EE2810B000165DF /* TabBarController.swift */,
 				DA2203E11EEC474300A4EA59 /* NewPostViewController.swift */,
 			);
@@ -410,12 +413,13 @@
 				DA8DBF9C1EDDB527000165DF /* UserStorable.swift in Sources */,
 				DA0580331ED9D457002251F0 /* Extensions.swift in Sources */,
 				DA7C8BB61ECB3F7D0066B17C /* MainViewController.swift in Sources */,
+				DA2203E41EEC6A6500A4EA59 /* Post.swift in Sources */,
 				DA8DBFA21EE2810B000165DF /* TabBarController.swift in Sources */,
 				DA7C8BB41ECB3F7D0066B17C /* AppDelegate.swift in Sources */,
 				DA8DBF9E1EDDC3F6000165DF /* User.swift in Sources */,
 				DA0580381ED9EEF8002251F0 /* EmailSignInViewController.swift in Sources */,
 				DA5C635B1ED3331800223913 /* GoogleSignInViewController.swift in Sources */,
-				DA8DBFA01EE27771000165DF /* SignInExtension.swift in Sources */,
+				DA8DBFA01EE27771000165DF /* ViewControllerExtension.swift in Sources */,
 				DAE0BA031ECBE1FE007F2362 /* R.generated.swift in Sources */,
 				DA2203E21EEC474300A4EA59 /* NewPostViewController.swift in Sources */,
 			);
