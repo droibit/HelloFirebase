@@ -12,6 +12,7 @@
 		DA0580331ED9D457002251F0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0580321ED9D457002251F0 /* Extensions.swift */; };
 		DA0580381ED9EEF8002251F0 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */; };
 		DA05803C1EDAE94A002251F0 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA05803B1EDAE94A002251F0 /* SVProgressHUD.framework */; };
+		DA2203E21EEC474300A4EA59 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2203E11EEC474300A4EA59 /* NewPostViewController.swift */; };
 		DA5C635B1ED3331800223913 /* GoogleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C635A1ED3331800223913 /* GoogleSignInViewController.swift */; };
 		DA6EDF1F1ECB44B100E8F544 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6EDF1E1ECB44B100E8F544 /* GoogleService-Info.plist */; };
 		DA7C8BB41ECB3F7D0066B17C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C8BB31ECB3F7D0066B17C /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		DA0580321ED9D457002251F0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
 		DA05803B1EDAE94A002251F0 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		DA2203E11EEC474300A4EA59 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		DA5C635A1ED3331800223913 /* GoogleSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignInViewController.swift; sourceTree = "<group>"; };
 		DA5C63621ED3480A00223913 /* HelloFirebase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloFirebase-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA6EDF1E1ECB44B100E8F544 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				DA0580371ED9EEF8002251F0 /* EmailSignInViewController.swift */,
 				DA8DBF9F1EE27771000165DF /* SignInExtension.swift */,
 				DA8DBFA11EE2810B000165DF /* TabBarController.swift */,
+				DA2203E11EEC474300A4EA59 /* NewPostViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				DA5C635B1ED3331800223913 /* GoogleSignInViewController.swift in Sources */,
 				DA8DBFA01EE27771000165DF /* SignInExtension.swift in Sources */,
 				DAE0BA031ECBE1FE007F2362 /* R.generated.swift in Sources */,
+				DA2203E21EEC474300A4EA59 /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

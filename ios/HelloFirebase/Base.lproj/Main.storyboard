@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -202,6 +202,7 @@
                 <tabBarController storyboardIdentifier="tabBar" automaticallyAdjustsScrollViewInsets="NO" id="QWA-te-FE4" customClass="TabBarController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="0pV-c2-OnB">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -239,7 +240,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Messages" id="caw-Ki-hQC">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="oC8-Qd-BOc">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="oC8-Qd-BOc">
                             <connections>
                                 <segue destination="Szj-Ww-JuY" kind="presentation" id="nxF-7s-eW7"/>
                             </connections>
@@ -274,7 +275,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Messages" id="skY-zl-25D">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="7Sb-Qg-cU7">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="7Sb-Qg-cU7">
                             <connections>
                                 <segue destination="Szj-Ww-JuY" kind="presentation" id="v6s-bJ-LUW"/>
                             </connections>
@@ -288,7 +289,7 @@
         <!--New Post-->
         <scene sceneID="TD9-LQ-hAL">
             <objects>
-                <viewController id="AsN-Jx-PeE" sceneMemberID="viewController">
+                <viewController id="AsN-Jx-PeE" customClass="NewPostViewController" customModule="HelloFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b6X-y7-v7a"/>
                         <viewControllerLayoutGuide type="bottom" id="uIj-RZ-GYW"/>
@@ -296,12 +297,60 @@
                     <view key="view" contentMode="scaleToFill" id="N3w-vO-99w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mwS-5J-WH5">
+                                <rect key="frame" x="32" y="96" width="311" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Van-Qo-gjA">
+                                <rect key="frame" x="32" y="162" width="311" height="473"/>
+                                <color key="backgroundColor" red="0.97034082598096916" green="0.96565318914048148" blue="0.97502846282145694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Post" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxy-pC-f4P">
+                                <rect key="frame" x="32" y="129" width="60" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="M3f-z6-cYA"/>
+                                    <constraint firstAttribute="height" constant="32" id="NGE-fe-wKR"/>
+                                </constraints>
+                                <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uIj-RZ-GYW" firstAttribute="top" secondItem="Van-Qo-gjA" secondAttribute="bottom" constant="32" id="3b5-Md-qTI"/>
+                            <constraint firstItem="Van-Qo-gjA" firstAttribute="leading" secondItem="N3w-vO-99w" secondAttribute="leading" constant="32" id="5Dj-fh-Dsz"/>
+                            <constraint firstItem="mwS-5J-WH5" firstAttribute="top" secondItem="b6X-y7-v7a" secondAttribute="bottom" constant="32" id="Jau-s7-JAS"/>
+                            <constraint firstItem="Bxy-pC-f4P" firstAttribute="leading" secondItem="N3w-vO-99w" secondAttribute="leading" constant="32" id="Khn-Ly-a96"/>
+                            <constraint firstAttribute="trailing" secondItem="Van-Qo-gjA" secondAttribute="trailing" constant="32" id="Ofr-cA-64e"/>
+                            <constraint firstAttribute="trailing" secondItem="mwS-5J-WH5" secondAttribute="trailing" constant="32" id="Qev-NR-uhr"/>
+                            <constraint firstItem="Bxy-pC-f4P" firstAttribute="top" secondItem="mwS-5J-WH5" secondAttribute="bottom" constant="16" id="ZjS-6X-Ix3"/>
+                            <constraint firstItem="Van-Qo-gjA" firstAttribute="top" secondItem="Bxy-pC-f4P" secondAttribute="bottom" constant="1" id="gnL-vw-Jpz"/>
+                            <constraint firstItem="mwS-5J-WH5" firstAttribute="leading" secondItem="N3w-vO-99w" secondAttribute="leading" constant="32" id="tnM-St-7ps"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Post" id="qRi-Jg-l3M">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="zZ8-13-wB5"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="khT-r8-Prg"/>
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="zZ8-13-wB5">
+                            <connections>
+                                <action selector="didTapClose:" destination="AsN-Jx-PeE" id="UNs-yn-swx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="khT-r8-Prg">
+                            <connections>
+                                <action selector="didTapSend:" destination="AsN-Jx-PeE" id="kCQ-st-kER"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contentText" destination="Van-Qo-gjA" id="uBQ-wu-XNR"/>
+                        <outlet property="titleText" destination="mwS-5J-WH5" id="zLk-Nm-itU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4U-rl-Mnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -369,7 +418,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Messages" id="Mi3-h1-LPJ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="Efo-RN-rXQ">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="Efo-RN-rXQ">
                             <connections>
                                 <segue destination="Szj-Ww-JuY" kind="presentation" id="jxo-Mh-mzj"/>
                             </connections>
@@ -404,7 +453,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Szj-Ww-JuY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jeu-DD-ZH4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jeu-DD-ZH4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -424,7 +473,7 @@
         <image name="ic_whatshot" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nxF-7s-eW7"/>
         <segue reference="RIu-gM-CEg"/>
+        <segue reference="nxF-7s-eW7"/>
     </inferredMetricsTieBreakers>
 </document>
